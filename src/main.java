@@ -14,7 +14,6 @@ public class main {
 		lecteur = new FileReader("test.txt");
 		ecrivain = new FileWriter("temp.txt");
 
-		//br pour ligne sur fichier temp
 		BufferedReader reader = new BufferedReader(lecteur);
 		String s;
 		while((s = reader.readLine()) != null) {
@@ -32,10 +31,8 @@ public class main {
 		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Titre</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
 		while((c = lecteur.read()) != -1) {
 			ecrivain.write(c);
-
 		}
 		ecrivain.write("\n\t</body>\n</html>"); //ecrire la fin du fichier html
-		reader.close();
 		lecteur.close();
 		ecrivain.close();
 
