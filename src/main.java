@@ -17,7 +17,6 @@ public class main {
 		BufferedReader reader = new BufferedReader(lecteur);
 		String s;
 		while((s = reader.readLine()) != null) {
-			System.out.println(s);
 			ecrivain.write(s + "<br>" + "\n");
 		}
 		reader.close();
