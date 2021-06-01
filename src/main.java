@@ -11,8 +11,8 @@ public class main {
 		FileReader lecteur;
 		FileWriter ecrivain;
 
-		lecteur = new FileReader("test.txt");
-		ecrivain = new FileWriter("temp.txt");
+		lecteur = new FileReader("ressource/test.txt");
+		ecrivain = new FileWriter("ressource/temp.txt");
 
 		BufferedReader reader = new BufferedReader(lecteur);
 		String s;
@@ -25,8 +25,8 @@ public class main {
 
 		//temp vers html
 		int c;
-		lecteur = new FileReader("temp.txt");
-		ecrivain = new FileWriter("test_copie.html");
+		lecteur = new FileReader("ressource/temp.txt");
+		ecrivain = new FileWriter("ressource/test_copie.html");
 		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Titre</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
 		while((c = lecteur.read()) != -1) {
 			ecrivain.write(c);
