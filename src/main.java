@@ -35,7 +35,7 @@ public class main {
 		lecteur.close();
 		ecrivain.close();
 
-		//supp fichier temp
+		//suppr fichier temp
 		PrintWriter pw =  new PrintWriter(new BufferedWriter(new FileWriter("temp.txt", false)));
 		pw.println("");
 	}
