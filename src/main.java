@@ -1,8 +1,6 @@
 import java.io.IOException;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class main {
 	public static void main(String[] args) throws IOException {
@@ -16,7 +14,13 @@ public class main {
 
 		BufferedReader reader = new BufferedReader(lecteur);
 		String s;
+		String[] tab;
 		while((s = reader.readLine()) != null) {
+			/*
+			tab = s.split("\t");
+			List<String> res = Arrays.asList(tab);
+			System.out.println(res);
+			*/
 			ecrivain.write(s + "<br>" + "\n");
 		}
 		reader.close();
