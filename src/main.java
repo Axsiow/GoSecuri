@@ -4,7 +4,7 @@ import java.util.*;
 
 public class main {
 	public static void main(String[] args) throws IOException {
-		
+
 		//test vers temp
 		FileReader lecteur;
 		FileWriter ecrivain;
