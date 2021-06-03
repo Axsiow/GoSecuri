@@ -36,8 +36,9 @@ public class main {
 		ecrivain.close();
 
 		//del temp file
-		PrintWriter pw =  new PrintWriter(new BufferedWriter(new FileWriter("temp.txt", false)));
+		PrintWriter pw =  new PrintWriter(new BufferedWriter(new FileWriter("ressource/temp.txt", false)));
 		pw.println("");
+		pw.close();
 	}
 
 }
