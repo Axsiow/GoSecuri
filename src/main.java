@@ -18,8 +18,8 @@ public class main {
 		while((s = reader1.readLine()) != null) {
 			ecrivain.write("<a href='"+s+".html'>" + s + "</a><br>" + "\n");
 			//création des pages staff
-			File yourFile = new File("ressource/web/"+s+".html");
-			yourFile.createNewFile();
+			new FileOutputStream("ressource/web/"+s+".html", false).close();
+			createStaffHtml(s);
 		}
 		reader1.close();
 		lecteur.close();
@@ -98,6 +98,72 @@ public class main {
 		pw.close();
 
  */
+
+	}
+	public static void createStaffHtml(String page){
+		try {
+			FileReader lecteur1 = new FileReader("ressource/txt/"+page+".txt");
+			FileReader lecteur2 = new FileReader("ressource/liste.txt");
+			FileWriter ecrivain = new FileWriter("ressource/web/"+page+".html");
+			BufferedReader reader = new BufferedReader(lecteur1);
+			String s;
+			String v;
+			int count = 0;
+
+			ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>"+page+"</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
+
+			while((s = reader.readLine()) != null && count<2) {
+				ecrivain.write(s + "<br>" + "\n");
+				count++;
+			}
+			ecrivain.write("\n<img"+" src=\"../jpg/"+page+".jpg\""+" alt=\"ID card of "+page+"\">");
+			count = 0;
+
+			System.out.println(new BufferedReader(lecteur2).readLine());
+/*
+			while((v = new BufferedReader(lecteur2).readLine()) != null) {
+				List<String> res = Arrays.asList(v.split("\t"));
+				System.out.println(res);
+
+				while ((s = reader.readLine()) != null) {
+					if (count > 4) {
+						if (true) {
+							ecrivain.write("" +
+									"<div>\n" +
+									"  <input type=\"checkbox\" id=\"scales\" onclick=\"return false\" name=\"scales\"\n" +
+									"         checked>\n" +
+									"  <label for=\"scales\">Scales</label>\n" +
+									"</div>\n" +
+									"\n"
+							);
+						} else {
+							ecrivain.write("" +
+									"<div>\n" +
+									"  <input type=\"checkbox\" id=\"scales\" onclick=\"return false\" name=\"scales\"\n" +
+									"  <label for=\"scales\">Scales</label>\n" +
+									"</div>\n" +
+									"\n"
+							);
+						}
+					}
+				}
+			}*/
+			//new BufferedReader(lecteur)
+
+			ecrivain.write("\n\t</body>\n</html>"); //ecrire la fin du fichier html
+
+			ecrivain.close();
+			lecteur1.close();
+			lecteur2.close();
+
+		} catch (FileNotFoundException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+
 	}
 
 }
