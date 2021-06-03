@@ -27,10 +27,16 @@ public class main {
 		lecteur.close();
 		ecrivain.close();
 
+		//supp de html
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("src/test_copie.html", false)));
+		pw.println("");
+		pw.close();
+
 		//temp vers html
 		int c;
+
 		lecteur = new FileReader("ressource/temp.txt");
-		ecrivain = new FileWriter("ressource/test_copie.html");
+		ecrivain = new FileWriter("src/test_copie.html");
 		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Titre</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
 		while((c = lecteur.read()) != -1) {
 			ecrivain.write(c);
@@ -40,7 +46,7 @@ public class main {
 		ecrivain.close();
 
 		//del temp file
-		PrintWriter pw =  new PrintWriter(new BufferedWriter(new FileWriter("ressource/temp.txt", false)));
+		pw = new PrintWriter(new BufferedWriter(new FileWriter("ressource/temp.txt", false)));
 		pw.println("");
 		pw.close();
 	}
