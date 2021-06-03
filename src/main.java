@@ -16,7 +16,10 @@ public class main {
 		BufferedReader reader1 = new BufferedReader(lecteur);
 		String s;
 		while((s = reader1.readLine()) != null) {
-			ecrivain.write("<a href='"+"'>" + s + "</a><br>" + "\n");
+			ecrivain.write("<a href='"+s+".html'>" + s + "</a><br>" + "\n");
+			//création des pages staff
+			File yourFile = new File("ressource/web/"+s+".html");
+			yourFile.createNewFile();
 		}
 		reader1.close();
 		lecteur.close();
@@ -24,7 +27,7 @@ public class main {
 
 		//supp de accueil.html
 
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("src/accueil.html", false)));
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("ressource/web/accueil.html", false)));
 		pw.println("");
 		pw.close();
 
@@ -32,7 +35,7 @@ public class main {
 		int c;
 
 		lecteur = new FileReader("ressource/temp.txt");
-		ecrivain = new FileWriter("src/accueil.html");
+		ecrivain = new FileWriter("ressource/web/accueil.html");
 
 		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Accueil</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
 		while((c = lecteur.read()) != -1) {
