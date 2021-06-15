@@ -108,7 +108,9 @@ public class main {
 			BufferedReader reader = new BufferedReader(lecteur1);
 			String s;
 			String v;
+			String str;
 			int count = 0;
+
 
 			ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>"+page+"</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
 
@@ -117,37 +119,55 @@ public class main {
 				count++;
 			}
 			ecrivain.write("\n<img"+" src=\"../jpg/"+page+".jpg\""+" alt=\"ID card of "+page+"\">");
-			count = 0;
 
-			System.out.println(new BufferedReader(lecteur2).readLine());
+
+			BufferedReader haha = new BufferedReader(lecteur2);
+			Map<String,String> listeHtml = new HashMap<String,String>();
+			while((str = haha.readLine()) != null)
+			{
+				listeHtml.put(str.split("\t")[0], str.split("\t")[1]);
+			}
 /*
-			while((v = new BufferedReader(lecteur2).readLine()) != null) {
-				List<String> res = Arrays.asList(v.split("\t"));
-				System.out.println(res);
-
-				while ((s = reader.readLine()) != null) {
-					if (count > 4) {
-						if (true) {
-							ecrivain.write("" +
-									"<div>\n" +
-									"  <input type=\"checkbox\" id=\"scales\" onclick=\"return false\" name=\"scales\"\n" +
-									"         checked>\n" +
-									"  <label for=\"scales\">Scales</label>\n" +
-									"</div>\n" +
-									"\n"
-							);
-						} else {
-							ecrivain.write("" +
-									"<div>\n" +
-									"  <input type=\"checkbox\" id=\"scales\" onclick=\"return false\" name=\"scales\"\n" +
-									"  <label for=\"scales\">Scales</label>\n" +
-									"</div>\n" +
-									"\n"
-							);
-						}
-					}
-				}
+			for(String test : yo){
+				paul++;
+				System.out.println(paul);
+				new BufferedReader(lecteur2).readLine();
 			}*/
+			count = 0;
+            ArrayList outils = new ArrayList();
+
+			for(String i : listeHtml.keySet()) {
+
+                while ((s = reader.readLine()) != null) {
+
+                    if (count > 1) {
+                        if (listeHtml.get(s) != null) {
+                            outils.add(listeHtml.get(s));
+                        }
+                    }
+                    count++;
+                }
+                    if (outils.contains(listeHtml.get(i))){
+                        ecrivain.write("\n" +
+                                "<div>\n" +
+                                "  <input type=\"checkbox\" id=\"" + listeHtml.get(i) + "\" onclick=\"return false\" name=\"" + listeHtml.get(i) + "\"\n" +
+                                "         checked>\n" +
+                                "  <label for=\"scales\">" + listeHtml.get(i) + "</label>\n" +
+                                "</div>\n" +
+                                "\n"
+                        );
+                    }else{
+                        ecrivain.write("\n" +
+                                "<div>\n" +
+                                "  <input type=\"checkbox\" id=\""+listeHtml.get(i)+"\" onclick=\"return false\" name=\""+listeHtml.get(i)+"\"\n" +
+                                "  <label for=\"scales\">"+listeHtml.get(i)+"</label>\n" +
+                                "</div>\n" +
+                                "\n"
+                        );
+                    }
+
+			}
+
 			//new BufferedReader(lecteur)
 
 			ecrivain.write("\n\t</body>\n</html>"); //ecrire la fin du fichier html
@@ -157,10 +177,8 @@ public class main {
 			lecteur2.close();
 
 		} catch (FileNotFoundException e) {
-			System.out.println(e);
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println(e);
 			e.printStackTrace();
 		}
 

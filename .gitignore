@@ -23,3 +23,6 @@
 hs_err_pid*
 .idea/discord.xml
 .idea/vcs.xml
+
+/ressource/web/*.html
+!/ressource/web/accueil.html
