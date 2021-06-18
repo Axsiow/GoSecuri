@@ -6,7 +6,6 @@ public class main {
 	public static void main(String[] args) throws IOException {
 
 		//staff vers temp
-
 		FileReader lecteur;
 		FileWriter ecrivain;
 
@@ -25,27 +24,27 @@ public class main {
 		lecteur.close();
 		ecrivain.close();
 
-		//supp de accueil.html
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("ressource/web/accueil.html", false)));
-		pw.println("");
-		pw.close();
 
-		//temp vers accueil.html
+        //création de index.html
+        new FileOutputStream("ressource/web/index.html", false).close();
+
+		//temp vers index.html
 		int c;
 
 		lecteur = new FileReader("ressource/temp.txt");
-		ecrivain = new FileWriter("ressource/web/accueil.html");
+		ecrivain = new FileWriter("ressource/web/index.html");
 
-		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Accueil</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
+		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Accueil</title>\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier index.html
+		ecrivain.write("\n<div id='logo'>\n\t<img id='gosecuri' src=\"../jpg/GoSecuri.PNG\" alt=\"logo of GoSecuri\">\n</div>\n<div id='agents'>");
 		while((c = lecteur.read()) != -1) {
 			ecrivain.write(c);
 		}
-		ecrivain.write("\n\t</body>\n</html>"); //ecrire la fin du fichier html
+		ecrivain.write("\n</div>\n\t</body>\n</html>"); //ecrire la fin du fichier html
 		lecteur.close();
 		ecrivain.close();
 
 		//del temp file
-		pw = new PrintWriter(new BufferedWriter(new FileWriter("ressource/temp.txt", false)));
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("ressource/temp.txt", false)));
 		pw.println("");
 		pw.close();
 
@@ -63,13 +62,15 @@ public class main {
 			int count = 0;
 
 
-			ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>"+page+"</title>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
+			ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>"+page+"</title>\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier html
 
+			ecrivain.write("<h1>");
 			while((s = reader.readLine()) != null && count<2) {
-				ecrivain.write(s + "<br>" + "\n");
+				ecrivain.write(s + "\n");
 				count++;
 			}
-			ecrivain.write("\n<img"+" src=\"../jpg/"+page+".jpg\""+" alt=\"ID card of "+page+"\">");
+			ecrivain.write("</h1>");
+			ecrivain.write("\n<div id='idCard'>\n\t<img"+" src=\"../jpg/"+page+".jpg\""+" alt=\"ID card of "+page+"\">\n</div>");
 
 
 			BufferedReader haha = new BufferedReader(lecteur2);
@@ -93,24 +94,26 @@ public class main {
                     }
                     count++;
                 }
+				ecrivain.write("<div id='outils'>");
                     if (outils.contains(listeHtml.get(i))){
                         ecrivain.write("\n" +
                                 "<div>\n" +
+								"  <label for=\"scales\">" + listeHtml.get(i) + "</label>\n" +
                                 "  <input type=\"checkbox\" id=\"" + listeHtml.get(i) + "\" onclick=\"return false\" name=\"" + listeHtml.get(i) + "\"\n" +
                                 "         checked>\n" +
-                                "  <label for=\"scales\">" + listeHtml.get(i) + "</label>\n" +
                                 "</div>\n" +
                                 "\n"
                         );
                     }else{
                         ecrivain.write("\n" +
                                 "<div>\n" +
+								"  <label for=\"scales\">"+listeHtml.get(i)+"</label>\n" +
                                 "  <input type=\"checkbox\" id=\""+listeHtml.get(i)+"\" onclick=\"return false\" name=\""+listeHtml.get(i)+"\"\n" +
-                                "  <label for=\"scales\">"+listeHtml.get(i)+"</label>\n" +
                                 "</div>\n" +
                                 "\n"
                         );
                     }
+				ecrivain.write("</div>");
 
 			}
 

@@ -26,4 +26,3 @@ hs_err_pid*
 
 # temp html files
 /ressource/web/*.html
-!/ressource/web/accueil.html

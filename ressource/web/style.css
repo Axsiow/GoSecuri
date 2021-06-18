@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+
+#idCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+
+#outils {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+#agents {
+	border-style: solid;
+    border-color: #19c1c1;
+    padding: 50px;
+}
+
+#gosecuri {
+	width: 200px;
+}
+
+img {
+	width: 450px;
+}
