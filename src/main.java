@@ -51,6 +51,7 @@ public class main {
 
 	}
 
+	//fonction qui genere le les fiches agents
 	public static void createStaffHtml(String page){
 		try {
 			FileReader lecteur1 = new FileReader("ressource/txt/"+page+".txt");
@@ -58,7 +59,6 @@ public class main {
 			FileWriter ecrivain = new FileWriter("ressource/web/"+page+".html");
 			BufferedReader reader = new BufferedReader(lecteur1);
 			String s;
-			String v;
 			String str;
 			int count = 0;
 
