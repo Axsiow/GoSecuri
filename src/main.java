@@ -50,7 +50,7 @@ public class main {
 		pw.close();
 
 	}
-	
+
 	public static void createStaffHtml(String page){
 		try {
 			FileReader lecteur1 = new FileReader("ressource/txt/"+page+".txt");
