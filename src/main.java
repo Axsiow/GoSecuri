@@ -35,7 +35,7 @@ public class main {
 		ecrivain = new FileWriter("ressource/web/index.html");
 
 		ecrivain.write("<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset='utf-8' />\n\t\t<title>Accueil</title>\n\t\t<link rel=\"stylesheet\" href=\"style.css\">\n\t\t<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>\n\t</head>\n\t<body>\n"); //ecrire le début du fichier index.html
-		ecrivain.write("\n<div id='logo'>\n\t<img id='gosecuri' src=\"../jpg/GoSecuri.PNG\" alt=\"logo of GoSecuri\">\n</div>\n<div id='agents'>");
+		ecrivain.write("\n<div id='logo'>\n\t<img id='gosecuri' src=\"/jpg/GoSecuri.PNG\" alt=\"logo of GoSecuri\">\n</div>\n<div id='agents'>");
 		while((c = lecteur.read()) != -1) {
 			ecrivain.write(c);
 		}
@@ -70,7 +70,7 @@ public class main {
 				count++;
 			}
 			ecrivain.write("</h1>");
-			ecrivain.write("\n<div id='idCard'>\n\t<img"+" src=\"../jpg/"+page+".jpg\""+" alt=\"ID card of "+page+"\">\n</div>");
+			ecrivain.write("\n<div id='idCard'>\n\t<img"+" src=\"/jpg/"+page+".jpg\""+" alt=\"ID card of "+page+"\">\n</div>");
 
 
 			BufferedReader haha = new BufferedReader(lecteur2);
