@@ -50,7 +50,7 @@ public class main {
 
 	}
 
-	//fonction qui genere le les fiches agents
+	//fonction qui genere le html dans les fiches agents
 	public static void createStaffHtml(String page){
 		try {
 			FileReader lecteur1 = new FileReader("ressource/txt/"+page+".txt");
